@@ -493,7 +493,7 @@ blockquote {
   width: 122px;
   height: 159px;
   text-indent: -10000px;
-  background: url(./images/logo.png) no-repeat top center;
+  background: url(../images/logo.png) no-repeat top center;
 }
 
 .intro {
