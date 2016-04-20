@@ -152,15 +152,19 @@ h4 {
 	width: 90%;
 }
 
-.col-four {
+.col-three {
+	@include breakpoint($tablet) {
+		@include span(3);
+	}
+}
 
+.col-four {
 	@include breakpoint($tablet) {
 		@include span(4);
 	}
 }
 
 .col-five {
-
 	@include breakpoint($tablet) {
 		@include span(5);
 	}
@@ -174,8 +178,14 @@ h4 {
 	}
 }
 
-.col-eight {
+.col-seven {
+	@include breakpoint($tablet) {
+		@include span(7);
+	}
+}
 
+
+.col-eight {
 	@include breakpoint($tablet) {
 		@include span(8);
 	}
@@ -231,6 +241,10 @@ body {
 		border-color: fade-out(#fff, 0.75);
 	}
 
+	h3 {
+		color: #fff;
+	}
+
 	a {
 		&:link, &:hover, &:active, &:visited {
 			color: $text-light-color;
@@ -252,8 +266,8 @@ body {
 	background-color: $orange;
 	font-size: 12px;
 	padding: 15px;
-	z-index: 2;
-	@include breakpoint($tablet) {
+	z-index: 99;
+	@include breakpoint($mobile) {
 		display: none;
 	}
 }
@@ -266,7 +280,7 @@ body {
     background-color: $orange;
     padding: 55px 15px 15px;
     display: none;
-    z-index: 99;
+    z-index: 98;
     ul {
     	width: 100%;
     }
@@ -285,10 +299,10 @@ body {
 
 	}
 
-	@include breakpoint($tablet) {
+	@include breakpoint($mobile) {
 		display: block;
 		background-color: #fff;
-		width: auto;
+		
 		padding: 0 15px;
 		text-align: center;
 		left: 50%;
@@ -305,6 +319,10 @@ body {
 			}	
 		}
 		
+	}
+
+	@include breakpoint($tablet) {
+		width: auto;
 	}
 }
 
@@ -479,12 +497,17 @@ body {
 .philosophy {
 	background: $green;
 	color: $text-light-color;
+	padding-bottom: 0;
+	@include breakpoint($tablet) {
+		padding-bottom: 100px;
+	}
 
 }
 
 .philosophy-image {
-	@extend .col-four;
 		@include breakpoint($tablet) {
+			@extend .col-four;
+			float: right;
 			margin-top: 10vh;
 			margin-right: $margin-one; 
 		}
@@ -492,8 +515,11 @@ body {
 
 .philosophy-text {
 	@extend .col-six;
+	float: right;
+	margin-bottom: 25px;
 	@include breakpoint($tablet) {
 		margin-top: 10vh;
+
 	}
 }
 
@@ -512,6 +538,7 @@ body {
 
 	@include breakpoint($mobile) {
 		width: 50%;
+		font-size: 55px;
 	}
 }
 
@@ -524,7 +551,9 @@ body {
 .initiatives-intro {
 	@extend .col-four;
 	@include breakpoint($tablet) {
-		height: 100%; 
+		height: 100%;
+		padding: 0 5px;
+		box-sizing: border-box;
 	}
 }
 
@@ -557,7 +586,7 @@ body {
 	}
 
 	p {
-		padding-right: 5px;
+		padding: 0 5px;
 	}
 }
 
