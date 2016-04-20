@@ -10,12 +10,13 @@ $sans: helvetica, arial, sans-serif;
 $chinese-font: "KaiTi", "楷体", STKaiti, "华文楷体", serif;
 $type-base: 16px;
 $line-height:1.7em;
-$text-dark-color: #433D3A;
-$text-light-color:  fade-out(#fff, 0.1);
+$text-dark-color: #666;
+$text-light-color:  fade-out(#fff, 0.35);
 $light-green: #9CCA3B;
 $green: #397612;
 $orange: #D64E07;
 $brown: #422B1D;
+$text-gray-color: fade-out($text-dark-color, 0.2);
 
 $mobile: 420px;
 $tablet: 768px;
@@ -49,10 +50,6 @@ $susy: (
 
 p {
 	margin: 0 0 1em 0;
-
-	@include breakpoint($tablet) {
-		font-size: 18px;
-	}
 }
 
 h2, h3, h4, h5 {
@@ -69,26 +66,35 @@ h3 {
 }
 
 h4 {
-	font-size: 14px;
-	letter-spacing: 2px;
-	text-transform: uppercase;
+	font-size: 20px;
+	//letter-spacing: 2px;
+	//text-transform: uppercase;
 	color: $green;
+	font-weight: 300;
 }
 
 .quote {
-	font-family: $serif;
-	font-style: italic;
+	//font-family: $serif;
+	//font-style: italic;
 	font-size: 16px;
 	padding-top: 25px;
+	font-weight: 300;
+	color: $text-gray-color;
+	position: relative;
 	span {
-		display: block;
+		position: absolute;
+		
 		font-size: 100px;
 		margin: 0.18em 0 -0.2em -0.1em;
 		opacity: 0.2;
 	}
 	@include breakpoint($mobile) {
-		font-size: 18px;
-		margin-left: -0.2em;
+		font-size: 20px;
+		line-height: 1.5em;
+		margin-left: 35px;
+		span {
+			margin-left: -40px;
+		}
 	}
 }
 
@@ -177,7 +183,7 @@ h4 {
 
 //structure
 .container {
-	@include container(95%);
+	@include container(90%);
 	@include breakpoint($desktop) {
 		@include container(960px);
 	}
@@ -225,6 +231,10 @@ body {
 		&:link, &:hover, &:active, &:visited {
 			color: $text-light-color;
 		}
+	}
+
+	.quote {
+		color: $text-light-color;
 	}
 }
 
@@ -419,6 +429,7 @@ body {
 		@extend .col-four;
 		@include box-text;
 		.quote {
+			color: $text-light-color;
 			padding-top: 0;
 			margin-bottom: 0;
 		}
@@ -467,7 +478,7 @@ body {
 .philosophy-image {
 	@extend .col-four;
 		@include breakpoint($tablet) {
-			margin-top: 20vh;
+			margin-top: 10vh;
 			margin-right: $margin-one; 
 		}
 }
@@ -475,7 +486,7 @@ body {
 .philosophy-text {
 	@extend .col-six;
 	@include breakpoint($tablet) {
-		margin-top: 20vh;
+		margin-top: 10vh;
 	}
 }
 
@@ -531,6 +542,10 @@ body {
 		@include breakpoint($tablet) {
 			@include span(6);
 		}
+	}
+
+	p {
+		padding-right: 5px;
 	}
 }
 
