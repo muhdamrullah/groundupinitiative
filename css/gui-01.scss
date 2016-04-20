@@ -231,30 +231,32 @@ body {
 .menu-button {
 	color: #fff;
 	text-decoration: none;
-	display: none;
+	display: block;
 	top:0;
 	right: 0;
-	font-size: 11px;
+	position: fixed;
+	background-color: $orange;
+	font-size: 12px;
+	padding: 15px;
+	z-index: 2;
 	@include breakpoint($tablet) {
 		display: none;
 	}
 }
 
-.menu, .menu:active {
+.menu {
 	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
     background-color: $orange;
-    padding: 5px 15px;
+    padding: 55px 15px 15px;
     display: none;
-    &:hover {
-    	width: 100%;
-    	ul {
-    		display: block;
-    	}
-    }
     ul {
-    	display: none;
+    	width: 100%;
     }
 	li {
+		width: 100%;
 		font-size: 14px;
 		text-transform: uppercase;
 		letter-spacing: 1px;
