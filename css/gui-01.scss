@@ -555,7 +555,6 @@ body {
 .initiatives-intro {
 	@extend .col-four;
 	@include breakpoint($tablet) {
-		height: 100%;
 		padding: 0 5px;
 		box-sizing: border-box;
 	}
@@ -681,5 +680,6 @@ body {
 	margin: 1em 0;
 	text-align: center;
 	font-size: 12px;
+	line-height: 1.25em;
 }
 
