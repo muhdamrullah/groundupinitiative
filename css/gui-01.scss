@@ -2,6 +2,7 @@
 ---
 @import "normalize";
 @import "breakpoint";
+@import "susy";
 
 //custom variables
 $serif: georgia,times,serif;
@@ -22,6 +23,12 @@ $desktop: 1024px;
 $desktop-wide: 1280px;
 
 $margin-one: 115px;
+
+//susy 
+
+$susy: (
+	columns: 12,
+ ); 
 
 //mixins
 @mixin base-font {
@@ -161,10 +168,7 @@ h4 {
 .col-five {
 	@extend .col;
 	@include breakpoint($tablet) {
-		width: 40%;
-	}
-	@include breakpoint($desktop-wide) {
-		width: 455px;
+		width: span(5);
 	}
 
 
@@ -173,10 +177,7 @@ h4 {
 .col-six {
 	@extend .col;
 	@include breakpoint($tablet) {
-		width: 50%;
-	}
-	@include breakpoint($desktop-wide) {
-		width: 550px;
+		width: span(6);
 	}
 }
 
