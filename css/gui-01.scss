@@ -28,6 +28,7 @@ $margin-one: 115px;
 
 $susy: (
 	columns: 12,
+	gutter-position: split,
  ); 
 
 //mixins
@@ -131,15 +132,9 @@ h4 {
 
 //grid
 
-.col {
-	float: left;
-	width: 100%;
-	box-sizing: border-box;
-}
-
 .image img {
 	width: 100%;
-	padding-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .col-margin {
@@ -147,63 +142,47 @@ h4 {
 	width: 90%;
 }
 
-.col-three {
-	@extend .col;
-
-}
-
 .col-four {
-	@extend .col;
+
 	@include breakpoint($tablet) {
-		width: 31.5%;
-	}
-	@include breakpoint($desktop) {
-		width: 31.5%;
-	}
-	@include breakpoint($desktop-wide) {
-		width: 360px;
+		@include span(4);
 	}
 }
 
 .col-five {
-	@extend .col;
+
 	@include breakpoint($tablet) {
-		width: span(5);
+		@include span(5);
 	}
 
 
 }
 
 .col-six {
-	@extend .col;
 	@include breakpoint($tablet) {
-		width: span(6);
+		@include span(6);
 	}
 }
 
 .col-eight {
-	@extend .col;
 
 	@include breakpoint($tablet) {
-		width: 66%;
+		@include span(8);
 	}
+}
 
-	@include breakpoint($desktop-wide) {
-		width: 740px;
-	}
+.col-full {
+	@include span(12);
 }
 
 //structure
 .container {
-	width: 100%;
-	margin: 0 auto;
-	padding: 0 20px;
-	box-sizing: border-box;
+	@include container(95%);
 	@include breakpoint($desktop) {
-		width: 980px;
+		@include container(960px);
 	}
 	@include breakpoint($desktop-wide) {
-		width: 1160px;
+		@include container(1140px);
 	}
 }
 
@@ -336,6 +315,7 @@ body {
 	text-align: center;
 	background-color: #fff;
 	padding: 0 20px;
+	margin: 0 auto;
 	p {
 		text-align: left;
 		border-top: 1px solid $light-green;
@@ -435,7 +415,6 @@ body {
 
 	.box-quote {
 		@extend .col-four;
-		@extend .col-margin;
 		@include box-text;
 		.quote {
 			padding-top: 0;
@@ -446,7 +425,7 @@ body {
 
 .tolstoy {
 	.box-quote {
-		margin-top: 95%;
+		margin-top: 90vh;
 		@include breakpoint($tablet) {
 			margin: 1% 1% 0 0;
 			float: right;
@@ -472,7 +451,7 @@ body {
 	padding: 0;
 	overflow: hidden;
 	img {
-		padding-bottom: 0;
+		margin-bottom: 0;
 	}
 }
 
@@ -516,6 +495,12 @@ body {
 	}
 }
 
+.initiatives {
+	h2 {
+		@extend .col-full;
+	}
+}
+
 .initiatives-intro {
 	@extend .col-four;
 	@include breakpoint($tablet) {
@@ -542,19 +527,13 @@ body {
 	ul {
 		@extend .pseudo-list;
 		@include breakpoint($tablet) {
-			float: left;
-			width: 49%;
-			box-sizing: border-box;
-
-			&.text-col-one {
-				padding-right: 2%;
-			} 
+			@include span(6);
 		}
 	}
 }
 
 .initiatives-quote {
-	@extend .col;
+	@extend .col-full;
 }
 
 .participate {
@@ -567,24 +546,18 @@ body {
 
 .participate-media {
 	@extend .col-eight;
-	float: right;
-
-	.image.image-two {
-		float: right;
-	}
 
 	@include breakpoint($tablet) {
 		margin-top: 70px;
 
 		.image {
-			width: 48%;
-			float: left;
+			@include span(6);
 		}
 	}
 }
 
 .participate-quote {
-	clear: both;
+	@extend .col-full;
 }
 
 .masterplan {
@@ -631,6 +604,7 @@ body {
 .cta-buttons {
 	@extend .col-four;
 	.button {
+		clear: both;
 		width: 280px;
 		margin: 0 auto 15px;
 		@include breakpoint($tablet) {
