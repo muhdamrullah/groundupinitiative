@@ -113,6 +113,10 @@ h4 {
 	text-decoration: none;
 	display: block;
 	text-align: center;
+	&:hover {
+		border: 1px solid #fff;
+		color: #fff;
+	}
 
 }
 
@@ -639,6 +643,7 @@ body {
 
 .cta {
 	background: $brown;
+	min-height: auto;
 }
 
 .cta-text {
@@ -669,5 +674,12 @@ body {
 			margin: 0 0 15px;
 		}
 	}
+}
+
+.footer {
+	@extend .col-full;
+	margin: 1em 0;
+	text-align: center;
+	font-size: 12px;
 }
 
