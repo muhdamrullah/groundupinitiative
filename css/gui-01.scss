@@ -8,7 +8,7 @@
 $serif: georgia,times,serif;
 $sans: 'Source Sans Pro', helvetica, arial, sans-serif;
 $chinese-font: "KaiTi", "楷体", STKaiti, "华文楷体", serif;
-$type-base: 16px;
+$type-base: 18px;
 $line-height:1.7em;
 $text-dark-color: #666;
 $text-light-color:  fade-out(#fff, 0.35);
@@ -16,7 +16,8 @@ $light-green: #9CCA3B;
 $green: #397612;
 $orange: #D64E07;
 $brown: #422B1D;
-$text-gray-color: fade-out($text-dark-color, 0.1);
+$text-gray-color: fade-out($text-dark-color, 0.4);
+$quote-color: #111;
 
 $mobile: 420px;
 $tablet: 768px;
@@ -63,6 +64,7 @@ h2 {
 
 h3 {
 	font-size: 26px;
+	color: $text-gray-color;
 }
 
 h4 {
@@ -76,20 +78,22 @@ h4 {
 .quote {
 	//font-family: $serif;
 	//font-style: italic;
-	font-size: 16px;
-	color: $text-gray-color;
+	font-size: 20px;
+	line-height: 1.5em;
+	color: $quote-color;
 	position: relative;
-	margin-top: 35px;
+	margin-top: 55px;
+	font-weight: 300;
 	span {
 		position: absolute;
 		top: -10;
 		font-size: 100px;
 		margin: 0em 0 0.2em -0.1em;
-		opacity: 0.2;
+		opacity: 0.8;
+		color: $light-green;
 	}
 	@include breakpoint($mobile) {
-		font-size: 20px;
-		line-height: 1.5em;
+
 		margin-left: 35px;
 		span {
 			margin-left: -40px;
@@ -223,7 +227,7 @@ body {
 .section.light {
 	color: $text-light-color;
 	h2 {
-		color: $text-light-color;
+		color: #fff;
 		border-color: fade-out(#fff, 0.75);
 	}
 
@@ -262,6 +266,7 @@ body {
     background-color: $orange;
     padding: 55px 15px 15px;
     display: none;
+    z-index: 99;
     ul {
     	width: 100%;
     }
@@ -373,6 +378,7 @@ body {
 	@extend .col-six;
 	text-align: center;
 	margin: 50px 0;
+	color: $quote-color;
 
 	.chinese-text {
 		font-size: 65px;
@@ -380,10 +386,10 @@ body {
 	}
 
 	.eng-translation {
-		font-family: $serif;
+		//font-family: $serif;
 		font-size: 15px;
 		line-height: 1.25em;
-		font-style: italic;
+		//font-style: italic;
 		margin-top: -40px;
 	}
 
@@ -432,6 +438,7 @@ body {
 			color: $text-light-color;
 			padding-top: 0;
 			margin-bottom: 0;
+			margin-top: 20px;
 		}
 	}
 }
@@ -542,6 +549,11 @@ body {
 		@include breakpoint($tablet) {
 			@include span(6);
 		}
+	}
+
+	li {
+		margin-bottom: 15px;
+
 	}
 
 	p {
