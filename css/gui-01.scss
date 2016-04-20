@@ -6,7 +6,7 @@
 
 //custom variables
 $serif: georgia,times,serif;
-$sans: helvetica, arial, sans-serif;
+$sans: 'Source Sans Pro', helvetica, arial, sans-serif;
 $chinese-font: "KaiTi", "楷体", STKaiti, "华文楷体", serif;
 $type-base: 16px;
 $line-height:1.7em;
@@ -16,7 +16,7 @@ $light-green: #9CCA3B;
 $green: #397612;
 $orange: #D64E07;
 $brown: #422B1D;
-$text-gray-color: fade-out($text-dark-color, 0.2);
+$text-gray-color: fade-out($text-dark-color, 0.1);
 
 $mobile: 420px;
 $tablet: 768px;
@@ -70,22 +70,21 @@ h4 {
 	//letter-spacing: 2px;
 	//text-transform: uppercase;
 	color: $green;
-	font-weight: 300;
+	font-weight: normal;
 }
 
 .quote {
 	//font-family: $serif;
 	//font-style: italic;
 	font-size: 16px;
-	padding-top: 25px;
-	font-weight: 300;
 	color: $text-gray-color;
 	position: relative;
+	margin-top: 35px;
 	span {
 		position: absolute;
-		
+		top: -10;
 		font-size: 100px;
-		margin: 0.18em 0 -0.2em -0.1em;
+		margin: 0em 0 0.2em -0.1em;
 		opacity: 0.2;
 	}
 	@include breakpoint($mobile) {
@@ -94,6 +93,7 @@ h4 {
 		margin-left: 35px;
 		span {
 			margin-left: -40px;
+			top: 10;
 		}
 	}
 }
