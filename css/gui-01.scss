@@ -358,7 +358,7 @@ body {
 
 
 .header {
-	@extend .col-five;
+	
 	@extend .center;
 	border-radius: 3px;
 	text-align: center;
@@ -370,15 +370,17 @@ body {
 		border-top: 1px solid $light-green;
 		padding-top: 20px;
 	}
-
-	@include breakpoint($tablet) {
+	@include breakpoint($mobile) {
+		@include span(6);
+		margin: 0 auto;
 		padding: 20px;
 	}
 
-	@include breakpoint($mobiletotablet) {
-		@include span(6);
+	@include breakpoint($desktop) {
+		@include span(5);
 		margin: 0 auto;
 	}
+
 }
 
 .logo {
