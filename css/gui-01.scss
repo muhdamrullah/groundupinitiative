@@ -19,6 +19,8 @@ $brown: #422B1D;
 $text-gray-color: fade-out($text-dark-color, 0.4);
 $quote-color: #111;
 
+$onlymobile: 0px 420px;
+$mobiletotablet: 420px 768px;
 $mobile: 420px;
 $tablet: 768px;
 $desktop: 1024px;
@@ -67,12 +69,15 @@ h3 {
 	color: $text-gray-color;
 }
 
-h4 {
+h4, h4 a {
 	font-size: 20px;
-	//letter-spacing: 2px;
-	//text-transform: uppercase;
 	color: $green;
 	font-weight: normal;
+}
+
+h4 a {
+	text-decoration: none; 
+	border-bottom: 1px solid $green;
 }
 
 .quote {
@@ -214,6 +219,7 @@ body {
 	background: #fff;
 	@include base-font;
 	color: $text-dark-color;
+	position: relative;
 }
 
 //custom sections
@@ -299,6 +305,8 @@ body {
 		a {
 			color: #fff;
 			text-decoration: none;
+			width: 100%;
+			display: block;
 		}
 
 	}
@@ -361,10 +369,14 @@ body {
 		padding-top: 20px;
 	}
 
-	@include breakpoint($mobile) {
+	@include breakpoint($tablet) {
 		padding: 20px;
 	}
 
+	@include breakpoint($mobiletotablet) {
+		@include span(6);
+		margin: 0 auto;
+	}
 }
 
 .logo {
@@ -380,16 +392,21 @@ body {
   list-style: none;
   margin: 0 auto;
   padding: 0;
+  	@include breakpoint($onlymobile) {
+		padding: 0 0 15px 0;
+	}
 }
 
 .social-media-icons li {
   display: inline;
+  padding: 0 5px;
 }
 
 .vision-text {
 	@extend .col-five;
 	@include breakpoint($tablet) {
 		margin-top: 15vh;
+		@extend .col-six;
 	}
 	@include breakpoint($desktop) {
 		margin-top: 35vh;
@@ -457,10 +474,21 @@ body {
 		@extend .col-four;
 		@include box-text;
 		.quote {
-			color: $text-light-color;
-			padding-top: 0;
+			color: #fff;
+			padding-top: 0;	
 			margin-bottom: 0;
-			margin-top: 20px;
+			margin-top: 15px;
+		}
+
+		@include breakpoint($onlymobile) {
+			padding-top: 35px;
+			span {
+				top: -5px;
+			}
+		}
+
+		@include breakpoint($tablet) {
+			@extend .col-five;
 		}
 	}
 }
@@ -486,6 +514,9 @@ body {
 .stories-text {
 	@extend .col-five;
 	float: right;
+	@include breakpoint($tablet) {
+		margin-top: 60px;
+	}
 }
 
 .space-image {
@@ -540,8 +571,11 @@ body {
 		}
 	}
 
-	@include breakpoint($mobile) {
+	@include breakpoint($desktop) {
 		width: 50%;
+	}
+
+	@include breakpoint($desktop-wide) {
 		font-size: 55px;
 	}
 }
@@ -558,6 +592,10 @@ body {
 		padding: 0 5px;
 		box-sizing: border-box;
 	}
+
+	@include breakpoint($mobiletotablet) {
+		@include span(5);
+;	}
 }
 
 .initiatives-images {
@@ -578,7 +616,7 @@ body {
 
 	ul {
 		@extend .pseudo-list;
-		@include breakpoint($tablet) {
+		@include breakpoint($desktop) {
 			@include span(6);
 		}
 	}
@@ -590,6 +628,10 @@ body {
 
 	p {
 		padding: 0 5px;
+	}
+
+	@include breakpoint($mobiletotablet) {
+		@include span(7);
 	}
 }
 
@@ -603,6 +645,9 @@ body {
 
 .participate-text {
 	@extend .col-four;
+	@include breakpoint($mobiletotablet) {
+		@include span(5);
+	}
 }
 
 .participate-media {
@@ -614,6 +659,10 @@ body {
 		.image {
 			@include span(6);
 		}
+	}
+
+	@include breakpoint($mobiletotablet) {
+		@include span(7);
 	}
 }
 
@@ -643,6 +692,7 @@ body {
 .cta {
 	background: $brown;
 	min-height: auto;
+	padding-bottom: 25px;
 }
 
 .cta-text {
@@ -665,6 +715,7 @@ body {
 
 .cta-buttons {
 	@extend .col-four;
+	margin-top: 25px;
 	.button {
 		clear: both;
 		width: 280px;
@@ -681,5 +732,6 @@ body {
 	text-align: center;
 	font-size: 12px;
 	line-height: 1.25em;
+	margin-top: 25px;
 }
 
