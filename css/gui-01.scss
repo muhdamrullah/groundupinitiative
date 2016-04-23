@@ -584,6 +584,13 @@ body {
 	}
 }
 
+.values-g {
+	margin-bottom: 25px;
+	@include breakpoint($desktop) {
+		margin-bottom: 0;
+	}
+}
+
 .initiatives {
 	h2 {
 		@extend .col-full;
